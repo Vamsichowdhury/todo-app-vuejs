@@ -1,20 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+<div>
+  <h1>{{title}}</h1>
+   <v-card class="mx-auto" max-width="500" elevation="21">
+        <InputToDo />
+        <br><br>
+        <ToDoList/>
+   </v-card>
+</div>
+  
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
-
+import InputToDo from "./components/InputToDo.vue"
+import ToDoList from './components/ToDoList.vue';
 @Options({
   components: {
-    HelloWorld,
+    InputToDo,
+    ToDoList
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  public title="Todo Application"
+}
 </script>
-
+ 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -23,5 +33,8 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.mx-auto{
+  margin-top: 40px;
 }
 </style>
